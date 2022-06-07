@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
+* {
+  margin: 0 auto;
+  text-align: center;
+  cursor: default;
+  font-family: 'Kdam Thmor Pro', 'Suez One', serif;
+}
+
+body.rtl {
+  direction: rtl;
+}
+
+body {
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
+}
+
+.table-container {
+  width: 50%;
+  margin-top: 8rem;
+}
+
+h1 {
+  position: absolute;
+  left: 41%;
+  top: 3%;
+  transition: 0.5s;
+}
+
+h1:hover {
+  text-decoration: line-through;
+  color: #eef2f3;
+  text-shadow: 0px 0px 1px black;
+}
+
+.filter-h4-max {
+  margin-top: 1rem;
+}
+
+.modal {
+  box-sizing: border-box;
+  background-color: #8e9eab;
+  padding: 10px;
+  position: absolute;
+  display: none;
+  top: 0px;
+  left: 150%;
+  min-height: 90vh;
+  min-width: 150px;
+  text-align: center;
+}
+
+.modal.open {
+  left: 80%;
+  transition: left 0.8s;
+  display: block;
+}
+
+.modal h3 {
+  color: #eef2f3;
+  text-decoration: overline;
+  text-transform: capitalize;
+}
+.modal h4 {
+  color: #eef2f3;
+}
+
+.modal h5 {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.modal > p {
+  text-align: left;
+  color: white;
+}
+
+.modal-btn {
+  width: 5rem;
+  padding: 0.5rem;
+  position: relative;
+  top: 1rem;
+  cursor: pointer;
+}
+
+th,
+tr,
+td {
+  border-top: 1px solid black;
+  background-color: #eef2f3;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  box-shadow: 0px 0px 1px 1px black;
+}
+
+th {
+  background-color: #8e9eab;
+}
+
+.btn-container {
+  padding: 1rem;
+}
+
+.read-btn {
+  background-color: rgba(0, 89, 255, 0.808);
+  color: white;
+  padding: 0.3rem;
+  width: 5rem;
+  border: none;
+  box-shadow: 0px 0px 2px black;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.update-btn {
+  background-color: rgba(255, 166, 0, 0.819);
+  color: white;
+  padding: 0.3rem;
+  width: 5rem;
+  border: none;
+  box-shadow: 0px 0px 2px black;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.delete-btn {
+  background-color: rgba(182, 1, 1, 0.762);
+  color: white;
+  padding: 0.3rem;
+  width: 5rem;
+  border: none;
+  box-shadow: 0px 0px 2px black;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.read-btn:hover,
+.delete-btn:hover,
+.update-btn:hover {
+  background-color: transparent;
+  color: black;
+  transition: 0.4s;
+}
+
+.rate-wrapper {
+  box-sizing: border-box;
+  position: relative;
+  top: 2rem;
+}
+
+.rate-wrapper .num {
+  width: 15%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  border: 1px solid white;
+  padding: 0.1rem;
+}
+
+.rate-wrapper button {
+  width: 8%;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.create-new-book-btn {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  border: none;
+  color: white;
+  box-shadow: 0px 0px 2px black;
+  background-color: #8e9eab;
+  cursor: pointer;
+}
+
+.create-new-book-btn:hover {
+  background-color: transparent;
+  color: black;
+  transition: 0.2s;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 6rem;
+}
+
+.filter-by-txt {
+  margin-top: 1rem;
+  border: 1px solid black;
+  box-shadow: 0px 0px 3px rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  cursor: text;
+}
+
+.lang-picker {
+  font-size: 1.5rem;
+  padding: 0.1rem;
+  position: absolute;
+  top: -5rem;
+  left: 3rem;
+  background-color: #c9ddee;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.lang-picker:hover {
+  background-color: rgb(105, 105, 105);
+}
+
+.prev,
+.next {
+  font-size: 1.3rem;
+  font-weight: bold;
+  position: relative;
+  top: 7rem;
+  margin: 0.2rem;
+  background-color: #c9ddee;
+  border: none;
+  box-shadow: 0px 0px 2px rgb(0, 0, 0);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgb(178, 178, 178);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(44, 44, 44, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  transition: 0.5s;
+  display: none;
+}
+
+.change-price-modal {
+  flex-direction: column;
+  background-color: #c9ddeea3;
+  width: 20%;
+  padding: 2rem;
+  box-shadow: 0px 0px 3px black;
+  position: fixed;
+  z-index: 101;
+  top: 20rem;
+  left: 45rem;
+  display: none;
+}
+
+.change-price-modal.open {
+  display: flex;
+}
+
+.overlay.open {
+  display: block;
+}
+
+.new-price,
+.enter-price-modal,
+.btn-new-price {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.enter-price-modal {
+  width: 35%;
+}
+
+.create-book-modal {
+  display: flex;
+  flex-direction: column;
+  background-color: #c9ddeea3;
+  width: 20%;
+  padding: 2rem;
+  box-shadow: 0px 0px 3px black;
+  position: fixed;
+  z-index: 101;
+  top: 20rem;
+  left: 45rem;
+  display: none;
+}
+
+.create-book-modal.open {
+  display: flex;
+}
+
+.new-book-name,
+.enter-book-name,
+.new-book-name,
+.enter-book-price,
+.create-book-new-btn {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.enter-book-price,
+.enter-book-name {
+  width: 50%;
+  margin-bottom: 1rem;
+}

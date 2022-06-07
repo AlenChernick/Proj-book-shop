@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Book Shop</title>
+  </head>
+  <body onload="onInit()">
+    <h1 data-trans="title">Welcome to Book Shop</h1>
+  </select>
+  <div class="filter-container">
+    <select class="lang-picker" onchange="onSetLang(this.value)">
+      <option value="en">English</option>
+      <option value="he">עברית</option>
+    </select>
+    <h2 data-trans="filter-by">Filter By:</h2>
+    <label>
+      <h4 class="filter-h4-max" data-trans="max-price">Maximum Price:</h4>
+      <input
+      type="range"
+      min="0"
+      max="20"
+      value="20"
+      class="filter-price-range"
+      oninput="this.title=this.value;onSetFilterBy({maxPrice: this.value})"
+      />
+    </label>
+    <label>
+     <h4 class="filter-h4-min" data-trans="min-rate">Minimum Rate:</h4> 
+      <input
+      type="range"
+      min="0"
+      max="10"
+      value="0"
+      class="filter-rate-range"
+      oninput="this.title=this.value;onSetFilterBy({minRate: this.value})"/>
+    </label>
+    <label>
+      <input data-trans="search" type="text" class="filter-by-txt" oninput="onSetFilterBy({title: this.value})" placeholder="Start Searching...">
+    </label>
+  </div>
+  <div class="page-btns">
+    <button data-trans="prev-btn" disabled class='prev' onclick="onMoveToPage('-',this)">Previous Page</button>
+    <button data-trans="next-btn" class='next' onclick="onMoveToPage('+',this)">Next Page</button>
+  </div>
+    <table class="table-container">
+      <thead>
+        <tr>
+          <th data-trans="id">Id</th>
+          <th data-trans="table-title">Title</th>
+          <th data-trans="price">Price</th>
+          <th data-trans="rating">Rating</th>
+          <th data-trans="actions">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="books-container"></tbody>
+    </table>
+    <div class="modal">
+      <h3></h3>
+      <h4>Price</h4>
+      <h5 data-trans="book-desc">Book Description</h5>
+      <p></p>
+      <button data-trans="close-btn" class="modal-btn" onclick="onCloseModal()">Close</button>
+      <div class="rate-wrapper">
+        <button class="minus" onclick="onUpdateRating(-1)">-</button>
+        <span class="num">0</span>
+        <button class="plus" onclick="onUpdateRating(1)">+</button>
+      </div>
+    </div>
+    <div class="overlay"></div>
+    <form onsubmit="onUpdateBook(event)" class="change-price-modal">
+      <label for="new-price" class="new-price" data-trans="new-price">Pick Price up to 20$</label>
+      <input class="enter-price-modal" type="txt"  required>
+      <button type="submit" class="btn-new-price" data-trans="btn-new-price" onclick="onClosePriceModal()">Update Price</button>
+    </form>
+    <form onsubmit="onAddBook(event)" class="create-book-modal">
+      <label for="new-book-name" class="new-book-name" data-trans="new-book-name">Enter Book Name</label>
+      <input class="enter-book-name" type="txt" required>
+      <label for="new-book-price" class="new-book-price" data-trans="new-book-price">Enter Book Price up</label>
+      <input class="enter-book-price" type="txt" required>
+      <button type="submit" class="create-book-new-btn" data-trans="create-book-new-btn" onclick="onCloseBookModal()">Add Book</button>
+    </form>
+    <button data-trans="new-book" class="create-new-book-btn" onclick="onOpenAddBookModal()">Create New Book</button>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/i18n-service.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/book.service.js"></script>
+    <script src="js/book.controller.js"></script>
+  </body>
+</html>
